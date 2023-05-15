@@ -1,1 +1,2 @@
-print("Hello Githube")
+print("Dobriy dan ")
+#Добрий день, це я учень Сах Ярослав
