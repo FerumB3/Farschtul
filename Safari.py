@@ -1,3 +1,5 @@
+
+import random
 class Student:
     def __init__(self,name):
         self.name=name
@@ -59,19 +61,60 @@ class Student:
          self.end_of_day()
          self.is_alive()
 
-         if live_cube == 2 < 20:
-            print("You need some rest")
+         def __init__(self, name,mony):
+             self.name = name
+             self.gladness = 50
+             self.progress = 0
+             self.alive = True
 
-         if live_cube == 1 < 20:
-            print("You need some study")
+         def to_study(self):
+             print("Time to study")
+             self.progress += 0.12
+             self.gladness -= 3
 
-         if live_cube == 2 > 20:
-            print("You need some rest")
+         def to_sleep(self):
+             print('I will sleep')
+             self.gladness += 3
 
-         if live_cube == 2 > 20:
-             print("You need some chill ")
+         def to_chill(self):
+             print("Rest time")
+             self.gladness += 5
+             self.progress -= 0.1
 
+         def is_alive(self):
+             if self.progress < -0.5:
+                 print("Cast out...")
+                 self.alive = False
+             elif self.gladness <= 0:
+                 print("Depression...0")
+                 self.alive = False
+             elif self.progress > 5:
+                 print("Passed eternally...")
+                 self.alive = False
 
+         def random_event(self):
+             event = random.randint(1, 3)
+             if event == 1:
+                 print("You caught a cold!")
+                 self.gladness -= 5
+             elif event == 2:
+                 print("You received a surprise gift!")
+                 self.gladness += 5
+             elif event == 3:
+                 print("You found a great study resource!")
+                 self.progress += 0.5
+
+         def work(self):
+             print("Time to work")
+             earnings = random.randint(5, 20)  # Случайно генерируем заработок
+             self.money += earnings
+             self.gladness -= 2
+             self.progress += 0.1
+
+         def end_of_day(self):
+             print(f'Gladness = {self.gladness}')
+             print(f'Progress = {round(self.progress, 2)}')
+             print(f'Money = {self.money}')
 
 nick=Student(name='Nick')
 for day in range(365):
